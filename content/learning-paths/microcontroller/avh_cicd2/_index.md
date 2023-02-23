@@ -5,7 +5,7 @@ description: Learn to integrate your Arm Virtual Hardware instances on AWS into 
 
 minutes_to_complete: 20   
 
-who_is_this_for: Embedded and DevOps engineers new to Arm Virtual Hardware and/or AWS.
+who_is_this_for: This is an introductory topic for software developers new to Arm Virtual Hardware and/or AWS.
 
 learning_objectives: 
     - Prepare AWS account for GitHub integration
@@ -22,13 +22,12 @@ skilllevels: Introductory
 subjects: CI-CD
 armips:
     - Cortex-M
-tools:
+operatingsystems:
+tools_software_languages:
+    - yml
     - Arm Virtual Hardware
     - GitHub
     - AWS EC2 
-softwares:
-    - yml
-operatingsystems:
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

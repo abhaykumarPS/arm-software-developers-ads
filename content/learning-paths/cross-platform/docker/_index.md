@@ -5,7 +5,7 @@ description: Build, share, and run for multi-architecture use cases.
 
 minutes_to_complete: 30
 
-who_is_this_for: Software developers who want to learn about Docker for the Arm architecture.
+who_is_this_for: This is an introductory topic for software developers who want to learn about Docker for the Arm architecture.
 
 learning_objectives:
     -  Build, run, and share Docker images
@@ -24,18 +24,17 @@ skilllevels: Introductory
 subjects: Containers and Virtualization
 armips:
     - Neoverse
-tools:
-    - Docker
-softwares:
 operatingsystems:
     - Linux
+tools_software_languages:
+    - Docker
 
 ### Cross-platform metadata only
 shared_path: true
 shared_between:
-    - Server and Cloud
-    - Desktop and Laptop
-    - Embedded
+    - server-and-cloud
+    - desktop-and-laptop
+    - embedded
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

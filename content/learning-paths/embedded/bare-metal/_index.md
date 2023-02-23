@@ -5,7 +5,7 @@ description: Learn how to write, compile, and run a simple embedded system progr
 
 minutes_to_complete: 30   
 
-who_is_this_for: Learning path for embedded software developers new to Arm Compiler for Embedded.
+who_is_this_for: This is an introductory topic for embedded software developers new to Arm Compiler for Embedded.
 
 learning_objectives: 
     - Create and build an example project
@@ -23,15 +23,15 @@ skilllevels: Introductory
 subjects: Performance and Architecture
 armips:
     - Cortex-A
-tools:
+operatingsystems:
+    - Baremetal
+tools_software_languages:
+    - C
+    - Assembly
     - Arm Development Studio
     - Arm Compiler for Embedded
     - Arm Fast Models   
-softwares:
-    - C
-    - Assembly
-operatingsystems:
-    - Baremetal
+
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

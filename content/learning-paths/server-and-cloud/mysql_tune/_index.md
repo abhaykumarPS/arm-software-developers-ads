@@ -6,13 +6,13 @@ description: This learning path presents some ideas on how to tune MySQL
 minutes_to_complete: 60
 
 
-who_is_this_for: DevOps professionals and anyone else interested in optimizing their MySQL deployment.
+who_is_this_for: This is an advanced topic for software developers and DevOps professionals interested in optimizing MySQL performance.
 
 learning_objectives:
     - Learn to tune MySQL
 
 prerequisites:
-    - Bare-metal host(s) or cloud node(s) with MySQL installed
+    - Bare-metal or cloud installation of MySQL
 
 author_primary: Julio Suarez
 
@@ -21,13 +21,12 @@ skilllevels: Advanced
 subjects: Databases
 armips:
     - Neoverse
-tools:
-softwares:
+operatingsystems:
+    - Linux
+tools_software_languages:
     - SQL
     - MySQL
     - InnoDB
-operatingsystems:
-    - Linux
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

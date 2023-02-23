@@ -3,16 +3,16 @@ title: Learn about Large System Extensions (LSE)
 
 description: Learning path for Arm Large System Extensions
 
-minutes_to_complete: 10
+minutes_to_complete: 45
 
-who_is_this_for: Learning path for software developers to understand what Large System Extensions are and use them in an application.
+who_is_this_for: This is an introductory topic for software developers to want to learn about Large System Extensions and use them in an application.
 
 learning_objectives:
-    - Understand what Large System Extensions are
+    - Learn about Large System Extensions
     - Find out if an application is using Large System Extensions
 
 prerequisites:
-    - An [AWS account](/learning-paths/server-and-cloud/providers/aws/) to use for accessing different AWS Graviton instance types. Other Arm Linux machines can be substituted as needed.
+    - An [AWS account](/learning-paths/server-and-cloud/csp/aws/) to access different AWS Graviton instance types. Other Arm Linux machines can be substituted as needed.
 
 author_primary: Jason Andrews
 
@@ -20,13 +20,12 @@ author_primary: Jason Andrews
 skilllevels: Introductory
 subjects: Performance and Architecture
 armips:
-    - Neoverse
-tools:
-    - gcc
-softwares: 
+    - Neoverse 
 operatingsystems:
     - Linux 
-
+tools_software_languages:
+    - GCC
+    
 ### FIXED, DO NOT MODIFY
 # ================================================================================
 weight: 1                       # _index.md always has weight of 1 to order correctly

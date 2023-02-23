@@ -5,7 +5,7 @@ description: Learn how to deploy a PP-OCRv3 English text recognition model on Ar
 
 minutes_to_complete: 30
 
-who_is_this_for: Learning path for developers in embedded industries using PaddlePaddle for Arm Cortex-M processor use-case.
+who_is_this_for: This is an introductory topic for software developers interested in using PaddlePaddle for Arm Cortex-M processors.
 
 learning_objectives: 
     - Train an English text recognition model with PaddleOCR
@@ -25,16 +25,15 @@ skilllevels: Introductory
 subjects: ML
 armips:
     - Cortex-M
-tools:
+operatingsystems:
+    - Baremetal
+tools_software_languages:
+    - C
+    - Python
     - AWS EC2
     - GCC
     - TVM
     - PaddleOCR
-softwares:
-    - C
-    - Python
-operatingsystems:
-    - Bare-metal
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

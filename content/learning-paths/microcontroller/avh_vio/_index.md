@@ -1,11 +1,11 @@
 ---
-title: Investigate example Virtual Peripheral implementation
+title: Investigate an example Virtual Peripheral with Arm Virtual Hardware
 
 description: Explore an example Python implementation of a Virtual Peripheral with Arm Virtual Hardware and Virtual IO
 
 minutes_to_complete: 15
 
-who_is_this_for: Embedded software developers new to Arm Virtual Hardware to get familiar with main features.
+who_is_this_for: This is an introductory topic for software developers new to Arm Virtual Hardware and its features.
 
 learning_objectives: 
     - Create and integrate an LED peripheral with the Virtual IO (VIO) interface of AVH.
@@ -20,14 +20,13 @@ skilllevels: Introductory
 subjects: Virtual Hardware
 armips:
     - Cortex-M
-tools:
-    - Arm Virtual Hardware
-    - AWS EC2
-softwares:
+operatingsystems:
+    - Baremetal
+tools_software_languages:
     - Python
     - C
-operatingsystems:
-    - Bare-metal
+    - Arm Virtual Hardware
+    - AWS EC2
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

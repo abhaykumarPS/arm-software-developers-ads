@@ -5,7 +5,7 @@ description: Get started integrating Arm Virtual Hardware on AWS into a GitHub C
 
 minutes_to_complete: 45
 
-who_is_this_for: Embedded software developers new to Arm Virtual Hardware to get familiar with main features.
+who_is_this_for: This is an introductory topic for embedded software developers new to Arm Virtual Hardware and its features.
 
 learning_objectives: 
     - Prepare a GitHub repository
@@ -21,15 +21,14 @@ skilllevels: Introductory
 subjects: CI-CD
 armips:
     - Cortex-M
-tools:
+operatingsystems:
+    - Baremetal
+tools_software_languages:
+    - C
+    - yml
     - Arm Virtual Hardware
     - GitHub
     - AWS EC2
-softwares:
-    - C
-    - yml
-operatingsystems:
-    - Baremetal
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

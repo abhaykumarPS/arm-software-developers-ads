@@ -5,7 +5,7 @@ description: The place to start for developers new to Arm embedded systems
 
 minutes_to_complete: 5
 
-who_is_this_for: Developers new to the Arm architecture and looking for embedded hardware.
+who_is_this_for: This is an introductory topic for Developers new to the Arm architecture and looking for embedded hardware.
 
 learning_objectives:
     - Find embedded hardware to use for your software development projects
@@ -21,10 +21,9 @@ subjects: Performance and Architecture
 armips:
     - Cortex-A
     - Cortex-R
-tools:
-softwares:
 operatingsystems:
     - Linux
+tools_software_languages:
 
 
 ### FIXED, DO NOT MODIFY

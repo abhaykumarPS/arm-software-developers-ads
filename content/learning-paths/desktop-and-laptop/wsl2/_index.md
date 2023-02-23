@@ -23,17 +23,16 @@ author_primary: Jason Andrews
 
 ### Tags
 skilllevels: Advanced
-subjects: Windows on Arm
+subjects: Migration to Arm
 armips:
     - Cortex-A
-tools:
-softwares:
-    - SSH
-    - VS Code
-    - VNC
 operatingsystems:
     - Windows
     - Linux
+tools_software_languages:
+    - SSH
+    - VS Code
+    - VNC
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

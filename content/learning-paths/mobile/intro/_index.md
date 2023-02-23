@@ -22,10 +22,9 @@ armips:
     - Cortex-A
     - Mali
     - Imortalis
-tools:
-softwares:
 operatingsystems:
     - Android
+tools_software_languages:
 
 
 ### FIXED, DO NOT MODIFY

@@ -7,11 +7,11 @@ weight: 2
 layout: "learningpathall"
 ---
 
-## Pre-requisites
+## Prerequisites
 
 This Learning Path assumes you have a  Windows on Arm computer such as [Windows Dev Kit 2023](https://learn.microsoft.com/en-us/windows/arm/dev-kit) or a Lenovo Thinkpad X13s laptop running Windows 11. 
 
-All major cloud providers have introduced Arm virtual machine instances. For more information about how to get started refer to [Getting Started with Arm-based Cloud Services](/learning-paths/server-and-cloud/providers/). 
+All major cloud csp have introduced Arm virtual machine instances. For more information about how to get started refer to [Getting Started with Arm-based Cloud Services](/learning-paths/server-and-cloud/csp/). 
 
 Using the same Arm architecture on a local development machine and on the cloud provides interoperability, consistency, and saves time. 
 
@@ -38,7 +38,7 @@ Next, download and install WSL 2 from the [Microsoft Store](https://apps.microso
 The last step is to set the default version to WSL 2 by running the following command at a PowerShell or Command Prompt.
 
 ```console
-> wsl --set-default-version 2
+wsl --set-default-version 2
 ```
 
 Once WSL 2 is installed, the Microsoft store is the easiest place to find a Linux distribution. [Installing Ubuntu 22.04](https://apps.microsoft.com/store/detail/ubuntu-22041-lts/9PN20MSR04DW) is quick and easy from the store. 

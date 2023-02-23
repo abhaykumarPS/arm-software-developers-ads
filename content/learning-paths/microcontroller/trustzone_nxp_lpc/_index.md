@@ -5,7 +5,7 @@ description: Run secure and non-secure applications on the Cortex-M33 processor 
 
 minutes_to_complete: 30
 
-who_is_this_for: Embedded software developers new to using Trustzone
+who_is_this_for: This is an introductory topic for software developers new to using Trustzone.
 
 learning_objectives: 
     - Install the Keil MDK Tools
@@ -25,13 +25,12 @@ skilllevels: Introductory
 subjects: Security 
 armips:
     - Cortex-M
-tools:
-    - Arm Compiler for Embedded
-    - Keil MDK
-softwares:
-    - C
 operatingsystems:
     - Bare-metal
+tools_software_languages:
+    - Arm Compiler for Embedded
+    - Keil MDK
+    - C
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

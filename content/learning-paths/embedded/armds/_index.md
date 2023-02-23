@@ -1,11 +1,11 @@
 ---
-title: Get Started with Arm Development Studio
+title: Get started with Arm Development Studio
 
 description: Learn how to import, build, and debug your first Arm Development Studio project
 
 minutes_to_complete: 30   
 
-who_is_this_for: Embedded software developers new to Arm Development Studio to get familiar with main features.
+who_is_this_for: This is an introductory topic for Embedded software developers new to Arm Development Studio.
 
 learning_objectives: 
     - Import and build an example project
@@ -25,15 +25,14 @@ armips:
     - Cortex-R
     - Cortex-M
     - Neoverse
-tools:
+operatingsystems:
+    - Baremetal
+tools_software_languages:
     - Arm Development Studio
     - Arm Compiler for Embedded
     - Arm Fast Models
     - DSTREAM
-softwares:
     - C
-operatingsystems:
-    - Baremetal
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================

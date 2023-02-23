@@ -1,24 +1,26 @@
 ---
 # User change
-title: "Contribute: Metadata"
+title: "2b) Modify Metadata"
 
-weight: 5 # 1 is first, 2 is second, etc.
+weight: 6 # 1 is first, 2 is second, etc.
 
 # Do not modify these elements
 layout: "learningpathall"
 ---
-![alt-text #center](2-contribution-process.PNG "Contribution process")
+<!-- ![alt-text #center](2-contribution-process.PNG "Contribution process") -->
+## Learning Path Metadata
 
 Each Learning Path contains metadata which is used to create the Learning Path pages. The metadata is used by the website so all Learning Paths have the same information and look the same. 
 
 This section explains how to add Learning Path metadata in three files:
-1. Metadata and Tagging information in **_index.md**
-2. Review Questions for comprehension provided in **_review.md**
-3. Next Steps for readers in **_next-steps.md**
+
+1. Metadata and Tagging information in `_index.md`
+2. Review Questions for comprehension provided in `_review.md`
+3. Next Steps for readers in `_next-steps.md`
 
 ## Metadata and Tagging 
 
-The following metadata is defined in the _index.md file:
+The following metadata is defined in the `_index.md` file:
 
 | Learning Path Metadata | Explanation |
 |---------------|----------|
@@ -31,8 +33,8 @@ The following metadata is defined in the _index.md file:
 | author_primary      | The name of the person who wrote the Learning Path in case there are questions about the material. |
 
 {{% notice Note%}}
-To specify a prerequisite Learning Path, do so with a relative path.
-- *The Learning Path on [Getting Started with Docker](../../docker) should be completed first.*
+To specify a prerequisite Learning Path, do so with a relative path. An example:
+- *The Learning Path on [Getting Started with Docker](../../docker) should be completed first.* was specified with this link: (../../docker) 
 {{% /notice %}}
 
 ## Tags
@@ -51,15 +53,15 @@ Specifies the primary subject the Learning Path covers. Can only be one subject 
 
 | Server and Cloud | Desktop and Laptop | Embedded | Mobile | Microcontroller |
 |---------|---------|---------|---------|---------|
-| ML | Windows on Arm| ML | ML | ML |
-| CI-CD | Porting | CI-CD| CI-CD | CI-CD |
+| CI-CD | CI-CD | CI-CD| CI-CD | CI-CD |
 | Performance and Architecture | Performance and Architecture | Performance and Architecture | Performance and Architecture | Performance and Architecture |
-| Containers and Virtualization | | Automotive | Gaming | Security |
-| Databases | | Cloud Connection | Graphics | Cloud Connection  |
-| Networking | | AR-VR | | Virtual Hardware |
-| Storage | | Storage | | |
-| Web | | Embedded Linux | | |
-| Libraries | | | | |
+| ML | Migration to Arm | ML | ML | ML |
+| Containers and Virtualization | Containers and Virtualization | Containers and Virtualization | Gaming | Security |
+| Storage | | Storage | AR-VR | Virtual Hardware |
+| Databases | | Automotive | Graphics | RTOS  |
+| Libraries | | Embedded Linux | | Libraries |
+| Web | | | | |
+| Networking | | | | |
 
 
 ### operatingsystems (closed)
@@ -70,38 +72,36 @@ Specifies the operating systems this Learning Path can run on. Select from this 
 | Linux         |
 | Windows       |
 | MacOS         |
+| ChromeOS      |
+| iOS           |
 | Android       |
 | RTOS          |
 | Baremetal     |
 
 
+### tools_software_languages (open)
+Specifies the tools, softwares, or languages this Learning Path uses. Please list out any key tools, software, or languages your learning path uses.
+
+| Tag Type     | Examples |
+|---------------|----------|
+| Environments  | AWS EC2, GCP                      |
+| Toolchains    | GCC, Arm Compiler for Embedded    |
+| IDEs          | Arm Development Studio, VS Code   |
+| Online Tools  | GitHub, Jenkins                   |
+| Assorted      | cbuild, Docker                    |
+| Stack         | tinyML, CMSIS             |
+| Language      | Python, Java, Assembly    |
+| Libraries     | zlib, snappy  |
+
+
 ### arm_ips (open)
-Specifies the Arm IP this Learning Path involves, providing a quick link to IP information for developers interested in learning more. You can enter multiple specific or groups of IP.
+Specifies the Arm IP this Learning Path involves, providing a quick link to IP information for developers interested in learning more. You can enter multiple specific or groups of IP. Note that this is not used for filtering content, but is clickable for readers to find more information about these IPs through seaching automatically on developer.arm.com.
 
 | Grouping Type | When to use | Examples |
 |--------------|-----|-----|
 | Specific IP | The Learning Path covers a specific board with one (or a few) Arm IP | Cortex-M4, Neoverse-N1, Mali-G57 |
 | Group of IP | The Learning Path applies to a wider class of Arm IP | Cortex-M, Cortex-A, Cortex-R, Neoverse, Mali |
 
-### tools (open)
-Specifies the tools this Learning Path uses.
-
-| Tool Type     | Examples |
-|---------------|----------|
-| Environments  | AWS EC2, GCP                      |
-| Toolchains    | GCC, Arm Compiler for Embedded    |
-| IDEs          | Arm Development Studio, VS Code   |
-| Online Tools  | GitHub, Jenkins                   |
-| Anything else | cbuild, Docker                    |
-
-### softwares (open)
-Specifies the software used in the Learning Path. 
-
-| Software Type | Examples |
-|---------------|----------|
-| Stack         | tinyML, CMSIS             |
-| Language      | Python, Java, Assembly    |
-| Libraries     | zlib, snappy  |
 
 
 ## Review Questions 
