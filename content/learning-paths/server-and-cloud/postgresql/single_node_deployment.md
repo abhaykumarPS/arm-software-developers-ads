@@ -131,45 +131,28 @@ Here we need to install the PostgreSQL database itself along with the python3-ps
 Here is the complete YML file of Ansible-Playbook
 ```console
 ---
-- hosts: {{ your_node_ip }}
+- hosts: all
   become: yes
   become_method: sudo
 
   vars_files:
-    - vars.yml
-
+    - vars.yml   
   pre_tasks:
-    - name: Update the Machine
-      shell: apt-get update -y
-    - name : LSB (Linux Standard Base) and Distribution information
-      shell: sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-    - name: Fetch & add key
-      shell: wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
-    - name: Install postgres
-      shell: sudo apt-get install postgresql -y
-    - name: Start postgres server
-      shell: sudo systemctl start postgresql
-    - name: Check the status
-      shell: sudo systemctl status postgresql
+    - name: Update the Machine & Install PostgreSQL
+      shell: |
+             sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+             wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+             sudo apt-get install postgresql -y
+             sudo systemctl start postgresql
+             sudo systemctl status postgresql
+      become: true
     - name: Update apt repo and cache on all Debian/Ubuntu boxes
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+      apt:  upgrade=yes update_cache=yes force_apt_get=yes cache_valid_time=3600
       become: true
-    - name: Upgrade all apt packages
-      apt: upgrade=yes force_apt_get=yes
-      become: true
-    - name: Install acl package
-      package:
-        name:
-         - acl 
-    - name: Install Python pip
+    - name: Install Python pip & Python package
       apt: name={{ item }} update_cache=true state=present force_apt_get=yes
       with_items:
       - python3-pip
-      become: true
-    - name: Install Python packages
-      pip: name={{ item }}
-      with_items:
-      - psycopg2-binary
       become: true
   tasks:
     - name: "Find out if PostgreSQL is initialized"
@@ -233,11 +216,12 @@ ansible-playbook {your_yml_file} -i {your_hosts_file} --key-file {path_to_privat
 ```
 **NOTE:-** Replace **{{ your_yml_file }}**, **{your_hosts_file}** and **{path_to_private_key}** with respective values.
 
-![image](https://user-images.githubusercontent.com/92078754/218668084-4a8bc7c7-3fa5-46f5-825d-e50242177e56.png)
+![image](https://user-images.githubusercontent.com/92078754/221488191-5047021c-e14c-4196-aa38-21c7bdee0cc0.png)
 
 Here is the output after successful execution of the **ansible-playbook** command.
 
-![image](https://user-images.githubusercontent.com/92078754/218667894-46e16245-8656-46e1-8392-7e43deaeb8db.png)
+![image](https://user-images.githubusercontent.com/92078754/221488280-d1d281b0-6ebd-4001-9131-4784b92e1fb0.png)
+
 
 ## Connect to Database 
 
@@ -248,14 +232,14 @@ ssh -i ~/.ssh/private_key username@host
 ```
 **NOTE:-** Replace **{private_key}**, **{host}** and **username** with respective values.
 
-![image](https://user-images.githubusercontent.com/92078754/218686378-904788ec-6fb7-43b8-9c64-b0a245d6c4be.png)
+![image](https://user-images.githubusercontent.com/92078754/221488467-cb4ec054-e351-45a0-a408-70d6c9c922f9.png)
 
 Next, log into the postgres by using the below commands.
 ```console
 cd ~postgres/
 sudo su postgres -c psql
 ```
-![image](https://user-images.githubusercontent.com/92078754/218687608-ad1f1a09-52e3-4bbe-91b0-0dcff9fa59c0.png)
+![image](https://user-images.githubusercontent.com/92078754/221488904-46ec8a8d-5800-4f63-a4f4-9081ccb0609d.png)
 
 Use the below command to show databases and tables.
 
