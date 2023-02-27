@@ -1,5 +1,5 @@
 ---
-title: Learn how to deploy PostgreSQL on Arm
+title: Learn how to deploy PostgreSQL on AWS
 
 description: Deploy a single instance of PostgreSQL and 3-node PostgreSQL through an EC2 instance. 
 
