@@ -145,7 +145,7 @@ SSH to the **primary node** and follow the steps below to make configuration cha
 ssh -i ~/.ssh/private_key ubuntu@{{ primary_node_ip }}
 ```
 Next, edit the main configuration file **/etc/postgresql/9.6/main/postgresql.conf** using your editor.
-With the file open, locate the **listen_addresses** directive. This directive specifies the host under which the PostgreSQL database server listens to connections. Uncomment the directive by removing the `#` symbol then replace localhost with **'*'** in single quotation marks as shown:
+With the file open, locate the **listen_addresses** directive. This directive specifies the IP address under which the PostgreSQL database server listens for connections. Uncomment the directive by removing the **#** symbol then replace localhost with **'*'** in single quotation marks as shown:
 
 ![image](https://user-images.githubusercontent.com/92078754/215722631-7ec6ac62-7726-4fee-821c-ad1149699efd.png)
 
