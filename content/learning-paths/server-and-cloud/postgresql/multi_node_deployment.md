@@ -13,9 +13,12 @@ layout: "learningpathall"
 ## Before you begin
 Any computer which has the required tools installed can be used for this section.
 
-You will need a An [AWS account](https://portal.aws.amazon.com/billing/signup?nc2=h_ct&src=default&redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start).
+You will need a An [AWS account](https://portal.aws.amazon.com/billing/signup?nc2=h_ct&src=default&redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start). Create an account if needed.
+
+Below tools are required on the computer you are using. Follow the links to install the required tools.
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 * [AWS IAM authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
+* [Ansible](https://www.cyberciti.biz/faq/how-to-install-and-configure-latest-version-of-ansible-on-ubuntu-linux/)
 * [Terraform](/install-tools/terraform)
 
 ## Generate Access keys (Access key ID and Secret access key)
