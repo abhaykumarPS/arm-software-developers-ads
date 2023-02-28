@@ -8,7 +8,7 @@ weight: 2 # 1 is first, 2 is second, etc.
 layout: "learningpathall"
 ---
 
-##  Deploy single instance of PostgreSQL 
+##  Deploy a single instance of PostgreSQL 
 
 ## Before you begin
 Any computer which has the required tools installed can be used for this section.
@@ -129,7 +129,7 @@ terraform apply
 
 ## Configure PostgreSQL through Ansible
 
-Here we need to install the PostgreSQL database itself along with the python3-psycopg2 Python library which will allow us to use the ansible PostgreSQL modules. Modify the pg_hba.conf file to allow the user to connect with a connection string. Create a database, user for the database, grant access for the user to the created database. Finally, we need to create a table in the database. We will add some dummy data to it by creating an SQL file.
+Here we need to install the PostgreSQL database itself along with the python3-psycopg2 Python library which will allow us to use the ansible PostgreSQL modules. Modify the pg_hba.conf file to allow the user to connect with a connection string. Create a database, user for the database and grant access for the user to the created database. Finally, we need to create a table in the database. We will add some dummy data to it by creating an SQL file.
 
 Here is the complete YML file of Ansible-Playbook
 ```console
@@ -206,7 +206,7 @@ Here is the complete YML file of Ansible-Playbook
       service: name=postgresql state=restarted
 
 ```
-**NOTE:** Replace **db_name** , **db_user** and **db_password** with your database name, user and password respectively or you can add all these variables in the [vars.yml](https://github.com/puppetlabs/pdk-docker/files/10739641/vars.txt) file. 
+**NOTE:** Replace **db_name**, **db_user** and **db_password** with your database name, user and password respectively or you can add all these variables in the [vars.yml](https://github.com/puppetlabs/pdk-docker/files/10739641/vars.txt) file. 
 
 In our case, the hosts(inventory) file is generating automatically after the terraform apply command. 
 We are using [dump.sql](https://github.com/puppetlabs/pdk-docker/files/10728905/dump.txt) file to create a table and insert values into the database. 
