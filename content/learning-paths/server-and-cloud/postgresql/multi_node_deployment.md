@@ -157,7 +157,7 @@ Next, go to **pg_hba.conf** file in this location **/etc/postgresql/9.6/main/pg_
 
 ![image](https://user-images.githubusercontent.com/92078754/217788571-697413fe-141a-4266-8800-b6b6c82a7dbd.png) 
 
-Next, log into the PostgreSQL by the using below commands.
+Next, log into PostgreSQL by the using below commands.
 ```console
 cd ~postgres/
 sudo su postgres -c psql
@@ -173,7 +173,7 @@ Then logout from the PostgreSQL prompt.
 
 ![image](https://user-images.githubusercontent.com/92078754/215955930-590628a4-463b-4090-b2d2-12defed9aeb0.png)
 
-Next, stop the postgres by using `sudo systemctl stop postgresql` command.
+Next, stop the PostgreSQL by using `sudo systemctl stop postgresql` command.
 
 Next, locate the **wal_level** directive in the **/etc/postgresql/9.6/main/postgresql.conf file**, this setting specifies the amount of information to be written to the Write Ahead Log (WAL) file.
 Uncomment the line and set it to hot_standby as shown below.
