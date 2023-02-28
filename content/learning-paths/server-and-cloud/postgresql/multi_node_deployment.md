@@ -157,12 +157,12 @@ Next, go to **pg_hba.conf** file in this location **/etc/postgresql/9.6/main/pg_
 
 ![image](https://user-images.githubusercontent.com/92078754/217788571-697413fe-141a-4266-8800-b6b6c82a7dbd.png) 
 
-Next, log into PostgreSQL by the using below commands.
+Next, log into PostgreSQL by using the below commands.
 ```console
 cd ~postgres/
 sudo su postgres -c psql
 ```
-Then run the following command to create the replication user and assign replication privileges. In this command, **replication** is the role(user) name while **password** is the user’s password. Be sure to provide a strong password unlike the one we have used which is purely for demo purposes.
+Then run the following command to create the replication user and assign replication privileges. In this command, **replication** is the role(user) name while **password** is the user’s password. Be sure to provide a strong password, unlike the one we have used which is purely for demo purposes.
 
 ```console
 CREATE ROLE replication WITH REPLICATION PASSWORD 'password' LOGIN;
