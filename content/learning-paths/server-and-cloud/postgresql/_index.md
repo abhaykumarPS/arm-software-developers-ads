@@ -5,7 +5,7 @@ description: Deploy a single instance of PostgreSQL and 3-node PostgreSQL throug
 
 minutes_to_complete: 60   
 
-who_is_this_for: This is an introductory topic for anyone who want to deploy PostgreSQL on Cloud nodes or physical machines.
+who_is_this_for: This is an introductory topic for anyone who wants to deploy PostgreSQL on Cloud nodes or physical machines.
 
 learning_objectives: 
     - Deploy single instance of PostgreSQL EC2 instance
