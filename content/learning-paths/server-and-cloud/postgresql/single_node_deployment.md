@@ -47,7 +47,7 @@ resource "aws_instance" "PSQL_TEST" {
   ami           = "ami-064593a301006939b"
   instance_type = "t4g.small"
   security_groups= [aws_security_group.Terraformsecurity.name]
-  key_name = "task2-key"
+  key_name = "psql-key"
  
   tags = {
     Name = "PSQL_TEST"
@@ -91,7 +91,7 @@ output "Master_public_IP" {
   value = [aws_instance.PSQL_TEST.public_ip]
 }
  resource "aws_key_pair" "deployer" {
-         key_name   = "task2-key"
+         key_name   = "psql-key"
          public_key = "ssh-rsaxxxxxxxxxxxxxx"
   }
 // Generate inventory file
@@ -123,13 +123,11 @@ Run `terraform apply` to apply the execution plan to your cloud infrastructure. 
 ```console
 terraform apply
 ```      
-![image](https://user-images.githubusercontent.com/92078754/217154441-c292c420-8a51-41da-a9dc-49714704cf1c.png)
-
-
+![image](https://user-images.githubusercontent.com/92078754/223036258-5e9a48b8-5104-4f6b-aebf-82f87c3aaa03.png)
 
 ## Configure PostgreSQL through Ansible
 
-Here we need to install the PostgreSQL database itself along with the python3-psycopg2 Python library which will allow us to use the ansible PostgreSQL modules. Modify the pg_hba.conf file to allow the user to connect with a connection string. Create a database, user for the database and grant access for the user to the created database. Finally, we need to create a table in the database. We will add some dummy data to it by creating an SQL file.
+Here we need to install the PostgreSQL database itself along with the python3-psycopg2 Python library which will allow us to use the ansible PostgreSQL modules. Modify the pg_hba.conf file to allow the user to connect with a connection string. 
 
 Here is the complete YML file of Ansible-Playbook
 ```console
@@ -137,14 +135,12 @@ Here is the complete YML file of Ansible-Playbook
 - hosts: all
   become: yes
   become_method: sudo
-
-  vars_files:
-    - vars.yml   
+  
   pre_tasks:
     - name: Update the Machine & Install PostgreSQL
       shell: |
              sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-             wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+             sudo wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
              sudo apt-get install postgresql -y
              sudo systemctl start postgresql
              sudo systemctl status postgresql
@@ -167,49 +163,13 @@ Here is the complete YML file of Ansible-Playbook
       service: "name={{ item }} state=started enabled=yes"
       with_items:
         - postgresql
-    - name: "Create app database"
-      postgresql_db:
-        state: present
-        name: "{{ db_name }}"
-      become: yes
-      become_user: postgres
-
-    - name: "Create db user"
-      postgresql_user:
-        state: present
-        name: "{{ db_user }}"
-        password: "{{ db_password }}"
-      become: yes
-      become_user: postgres
-
-    - name: "Allow md5 connection for the db user"
-      postgresql_pg_hba:
-        dest: "~/14/main/pg_hba.conf"
-        contype: host
-        databases: all
-        method: md5
-        users: "{{ db_user }}"
-        create: true
-      become: yes
-      become_user: postgres
-      notify: restart postgres
-    - name: Copy database dump file
-      copy:
-       src: /tmp/dump.sql
-       dest: /tmp
-    - name: "Add some dummy data to our database"
-      become: true
-      become_user: postgres
-      shell: psql "{{ db_name }}" < /tmp/dump.sql
+    
   handlers:
     - name: restart postgres
       service: name=postgresql state=restarted
 
 ```
-**NOTE:** Replace **db_name**, **db_user** and **db_password** with your database name, user and password respectively or you can add all these variables in the [vars.yml](https://github.com/puppetlabs/pdk-docker/files/10739641/vars.txt) file. 
-
-In our case, the hosts(inventory) file is generated automatically after the terraform apply command. 
-We are using [dump.sql](https://github.com/puppetlabs/pdk-docker/files/10728905/dump.txt) file to create a table and insert values into the database. 
+**NOTE:** In our case, the hosts(inventory) file is generated automatically after the terraform apply command. 
 
 ### Ansible Commands
 
@@ -219,12 +179,11 @@ ansible-playbook {your_yml_file} -i {your_hosts_file} --key-file {path_to_privat
 ```
 **NOTE:-** Replace **{{ your_yml_file }}**, **{your_hosts_file}** and **{path_to_private_key}** with respective values.
 
-![image](https://user-images.githubusercontent.com/92078754/221488191-5047021c-e14c-4196-aa38-21c7bdee0cc0.png)
+![image](https://user-images.githubusercontent.com/92078754/223037464-59317988-9f8c-48cf-8534-b88450b8a6ab.png)
 
 Here is the output after successful execution of the **ansible-playbook** command.
 
-![image](https://user-images.githubusercontent.com/92078754/221488280-d1d281b0-6ebd-4001-9131-4784b92e1fb0.png)
-
+![image](https://user-images.githubusercontent.com/92078754/223037577-acadf95d-e0e4-41bf-a430-e2db75bdfa1c.png)
 
 ## Connect to Database 
 
@@ -235,39 +194,61 @@ ssh -i ~/.ssh/private_key username@host
 ```
 **NOTE:-** Replace **{private_key}**, **{host}** and **username** with respective values.
 
-![image](https://user-images.githubusercontent.com/92078754/221488467-cb4ec054-e351-45a0-a408-70d6c9c922f9.png)
+![image](https://user-images.githubusercontent.com/92078754/223038314-9f61ff45-25e2-40ce-b887-f38fcf8fd883.png)
 
 Next, log into the postgres by using the below commands.
 ```console
 cd ~postgres/
 sudo su postgres -c psql
 ```
-![image](https://user-images.githubusercontent.com/92078754/221488904-46ec8a8d-5800-4f63-a4f4-9081ccb0609d.png)
+![image](https://user-images.githubusercontent.com/92078754/223038516-68a11606-24d9-44e2-a59c-249504b3cc59.png)
 
-Use the below command to show databases and tables.
+Use the below command to create databases.
+```console
+create database postgresql;
+```
+![image](https://user-images.githubusercontent.com/92078754/223039000-b7f10137-68c8-4865-ab2c-3f94ff70e007.png)
+
+Use the below command to show databases.
 
 ```console
  \l;
 ```
-![image](https://user-images.githubusercontent.com/92078754/218688208-abaa4da6-ef1a-45bd-a00c-e2e1502f80a3.png)
+![image](https://user-images.githubusercontent.com/92078754/223039278-14498aad-94dd-4f3a-af21-da5c4a1298fc.png)
+
 
 Use the below command to use existing databases.
 ```console
- \c testdb;
+ \c postgresql;
 ```
-![image](https://user-images.githubusercontent.com/92078754/218688529-8bdbb62f-3ac8-49b1-a3d0-7647b2bff50a.png)
+![image](https://user-images.githubusercontent.com/92078754/223039502-fe43a1c4-c8f0-4cee-ae1e-c62e85a45187.png)
+
+Use the below command to create the tables.
+```console
+CREATE TABLE teachers (id INT PRIMARY KEY, first_name VARCHAR, last_name VARCHAR, subject VARCHAR, grade_level int);
+```
+
+![image](https://user-images.githubusercontent.com/92078754/223040022-bbdf3bc5-dfda-421c-ac91-07dce2ad5fdc.png)
 
 Use the below command to show the tables.
 
 ```console
  \dt;
 ```
-![image](https://user-images.githubusercontent.com/92078754/218688649-679ace9f-1711-4181-a0b7-aa25e8a9ae8e.png)
+![image](https://user-images.githubusercontent.com/92078754/223040124-5354bcb0-1c7d-4718-ae8f-d41fa15f4d77.png)
+
+Use the below commands to insert values into the table.
+```console
+INSERT INTO teachers VALUES (001, 'Rohan', 'Sharma', 'Hindi', 01), (002, 'Nitin', 'malik', 'stat', 02);
+```
+![image](https://user-images.githubusercontent.com/92078754/223040607-44e09321-f6fe-4aac-be02-cb378d766aa1.png)
+
 
 Use the below command to access the content of the table.
 
 ```console
 select * from teachers;
 ```
-![image](https://user-images.githubusercontent.com/92078754/218688811-e9294095-ebe5-4c0f-b74f-770dcee777f5.png)
+![image](https://user-images.githubusercontent.com/92078754/223040915-4b3f3546-9229-4b42-8d72-8dd0af9a9255.png)
+
 
