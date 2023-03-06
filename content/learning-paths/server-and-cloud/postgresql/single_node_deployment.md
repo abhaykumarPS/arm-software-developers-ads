@@ -187,7 +187,7 @@ Here is the output after successful execution of the **ansible-playbook** comman
 
 ## Connect to Database 
 
-For connecting to the database, we need the **host(public-ip of the node)** where PostgreSQL is deployed. To connect to the host using below command.
+For connecting to the database, we need the **host(public-ip of the node)** where PostgreSQL is deployed. To connect to the host use the below command.
 
 ```console
 ssh -i ~/.ssh/private_key username@host
