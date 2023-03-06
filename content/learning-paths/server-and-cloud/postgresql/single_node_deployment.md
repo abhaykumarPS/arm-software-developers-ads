@@ -187,7 +187,7 @@ Here is the output after successful execution of the **ansible-playbook** comman
 
 ## Connect to Database 
 
-To connect to the database, we need the **host(public-ip of the node)** where PostgreSQL is deployed. 
+For connecting to the database, we need the **host(public-ip of the node)** where PostgreSQL is deployed. To connect to the host using below command.
 
 ```console
 ssh -i ~/.ssh/private_key username@host
@@ -205,50 +205,45 @@ sudo su postgres -c psql
 
 Use the below command to create databases.
 ```console
-create database postgresql;
+create database testdb;
 ```
-![image](https://user-images.githubusercontent.com/92078754/223039000-b7f10137-68c8-4865-ab2c-3f94ff70e007.png)
+![image](https://user-images.githubusercontent.com/92078754/223055208-55a9da7c-5679-47c9-a885-c21eee0feec4.png)
 
 Use the below command to show databases.
 
 ```console
  \l;
 ```
-![image](https://user-images.githubusercontent.com/92078754/223039278-14498aad-94dd-4f3a-af21-da5c4a1298fc.png)
-
+![image](https://user-images.githubusercontent.com/92078754/223055558-823a6d15-72d5-4366-a42d-f4517a6747d6.png)
 
 Use the below command to use existing databases.
 ```console
- \c postgresql;
+ \c testdb;
 ```
-![image](https://user-images.githubusercontent.com/92078754/223039502-fe43a1c4-c8f0-4cee-ae1e-c62e85a45187.png)
+![image](https://user-images.githubusercontent.com/92078754/223055687-17cf5d0e-af9c-4de7-9b49-2b4d4e18758f.png)
 
 Use the below command to create the tables.
 ```console
-CREATE TABLE teachers (id INT PRIMARY KEY, first_name VARCHAR, last_name VARCHAR, subject VARCHAR, grade_level int);
+CREATE TABLE company ( emp_name VARCHAR, emp_dpt VARCHAR);
 ```
-
-![image](https://user-images.githubusercontent.com/92078754/223040022-bbdf3bc5-dfda-421c-ac91-07dce2ad5fdc.png)
+![image](https://user-images.githubusercontent.com/92078754/223057061-8edf1ecd-dfe3-4aea-b065-d1c98b4b9eae.png)
 
 Use the below command to show the tables.
 
 ```console
  \dt;
 ```
-![image](https://user-images.githubusercontent.com/92078754/223040124-5354bcb0-1c7d-4718-ae8f-d41fa15f4d77.png)
+![image](https://user-images.githubusercontent.com/92078754/223057168-b75bdcb3-eb8e-4ea6-b473-be2d726044b8.png)
 
 Use the below commands to insert values into the table.
 ```console
-INSERT INTO teachers VALUES (001, 'Rohan', 'Sharma', 'Hindi', 01), (002, 'Nitin', 'malik', 'stat', 02);
+INSERT INTO company VALUES ('Herry', 'Development'), ('Tom', 'Testing'),('Ankit', 'Sales'),('Manoj', 'HR'),('Noy', 'Presales');
 ```
-![image](https://user-images.githubusercontent.com/92078754/223040607-44e09321-f6fe-4aac-be02-cb378d766aa1.png)
-
+![image](https://user-images.githubusercontent.com/92078754/223057644-34abadec-c0f3-47c8-a919-dd8bc57f9418.png)
 
 Use the below command to access the content of the table.
 
 ```console
-select * from teachers;
+select * from company;
 ```
-![image](https://user-images.githubusercontent.com/92078754/223040915-4b3f3546-9229-4b42-8d72-8dd0af9a9255.png)
-
-
+![image](https://user-images.githubusercontent.com/92078754/223057884-296af4cf-4fb5-462c-9008-6131eff00584.png)
